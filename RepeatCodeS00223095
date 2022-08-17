@@ -1,0 +1,22 @@
+const int PWM = 2 ;	//initializing pin 2 as PWM
+const int in_1 = 8 ;
+const int in_2 = 9 ;
+//providing logic to driver module to choose the direction of the DC motor 
+void setup()
+{
+pinMode(pwm,OUTPUT) ;  	//have to set PWM pin as output
+pinMode(in_1,OUTPUT) ; 	//Logic pins are also set as output
+pinMode(in_2,OUTPUT) ;
+}
+void loop()
+{
+//For Clock wise motion , in_1 = High , in_2 = Low
+digitalWrite(in_1,HIGH) ;
+digitalWrite(in_2,LOW) ;
+analogWrite(pwm,100) ;
+/*setting pwm of the motor to 100
+//For brake
+digitalWrite(in_1,HIGH) ;
+digitalWrite(in_2,HIGH) ;
+delay(1000) ;
+}
