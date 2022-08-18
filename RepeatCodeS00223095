@@ -1,11 +1,40 @@
-const int PWM = 2 ;	//initializing pin 2 as PWM
+int motorPin = 3;
+
+void setup() {
+
+}
+
+void loop() {
+   digitalWrite(motorPin, HIGH);
+}
+
+int motorPin = 9;
+
+void setup() {
+   pinMode(motorPin, OUTPUT);
+   Serial.begin(9600);
+   while (! Serial);
+   Serial.println("Speed 0 to 255");
+}
+
+void loop() {
+   if (Serial.available()) {
+      int speed = Serial.parseInt();
+      if (speed >= 0 && speed <= 255) {
+         analogWrite(motorPin, speed);
+      }
+   }
+}
+
+*// If you want to control the speed of the motor , this is the code //*
+const int PWM = 2 ;     	//initializing pin 2 as PWM
 const int in_1 = 8 ;
 const int in_2 = 9 ;
-//providing logic to driver module to choose the direction of the DC motor 
+//providing logic to driver module to choose the direction of the DC motor
 void setup()
 {
-pinMode(pwm,OUTPUT) ;  	//have to set PWM pin as output
-pinMode(in_1,OUTPUT) ; 	//Logic pins are also set as output
+pinMode(pwm,OUTPUT) ;        	//have to set PWM pin as output
+pinMode(in_1,OUTPUT) ;          	//Logic pins are also set as output
 pinMode(in_2,OUTPUT) ;
 }
 void loop()
@@ -20,3 +49,5 @@ digitalWrite(in_1,HIGH) ;
 digitalWrite(in_2,HIGH) ;
 delay(1000) ;
 }
+
+
