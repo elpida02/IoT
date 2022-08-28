@@ -1,7 +1,9 @@
 int motorPin = 3;
 
 void setup() {
-
+Blynk.viritualWrite(V1, HIGH); changes button state from hardware side
+Blynk.setProperty(V1, "onLabel", "ON"); turns motor on 
+Blynk.setProperty(V1, "offLabel", "OFF"); turns motor off
 }
 
 void loop() {
